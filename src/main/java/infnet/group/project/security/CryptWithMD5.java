@@ -1,16 +1,19 @@
 package infnet.group.project.security;
 
+import org.springframework.stereotype.Component;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@Component
 public class CryptWithMD5 {
-    private static MessageDigest md;
+
 
     public String cryptWithMD5(String pass){
         try {
-            md = MessageDigest.getInstance("MD5");
+            MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] passBytes = pass.getBytes();
             md.reset();
             byte[] digested = md.digest(passBytes);

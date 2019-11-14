@@ -8,8 +8,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
-
-    <!-- Optional theme -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+       <!-- Optional theme -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css" integrity="sha384-jzngWsPS6op3fgRCDTESqrEJwRKck+CILhJVO5VvaAZCq8JYf8HsR/HPpBOOPZfR" crossorigin="anonymous">
 
 </head>
@@ -29,39 +30,39 @@
             </div>
         </div>
         <div class="form-group form-group-lg">
-            <label for="surname" class="col-sm-2 control-label">Surname:</label>
+            <label for="surname" class="col-sm-2 control-label">surname:</label>
             <div class="col-sm-10">
-                <input type="text" id="surname" class="form-control" name="Surname"  >
+                <input type="text" id="surname" class="form-control" name="surname"  >
             </div>
         </div>
         <div class="form-group form-group-lg">
-            <label for="address" class="col-sm-2 control-label">Adress:</label>
+            <label for="address" class="col-sm-2 control-label">adress:</label>
             <div class="col-sm-10">
-                <input type="text" id="address" class="form-control" name="Address"  >
+                <input type="text" id="address" class="form-control" name="address"  >
             </div>
         </div>
         <div class="form-group form-group-lg">
-            <label for="phone" class="col-sm-2 control-label">Phone:</label>
+            <label for="phone" class="col-sm-2 control-label">phone:</label>
             <div class="col-sm-10">
-                <input type="text" id="phone" class="form-control" name="phone"  >
+                <input type="text" id="phone" name="phone" class="form-control" onkeypress="$(this).mask('(00) 0000-00009')" >
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="cpf" class="col-sm-2 control-label">CPF:</label>
             <div class="col-sm-10">
-                <input type="text" id="cpf" class="form-control" name="cpf"  >
+                <input type="text" id="cpf" class="form-control" name="cpf" onkeypress="$(this).mask('000.000.000-00');">
             </div>
         </div>
         <div class="form-group form-group-lg">
-            <label for="E-mail" class="col-sm-2 control-label">E-mail:</label>
+            <label for="email" class="col-sm-2 control-label">E-mail:</label>
             <div class="col-sm-10">
-                <input type="text" id="E-mail" class="form-control" name="E-mail"  >
+                <input type="text" id="email" class="form-control" name="email"  >
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="password" class="col-sm-2 control-label">Password:</label>
             <div class="col-sm-10">
-                <input type="text" id="password" class="form-control" name="Password"  >
+                <input type="text" id="password" class="form-control" name="password"  >
             </div>
         </div>
         <div style="float:right">

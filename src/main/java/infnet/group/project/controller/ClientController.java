@@ -9,15 +9,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 @Controller
+@RequestMapping ("client")
 public class ClientController {
 
     @Autowired
     ClientRepository clientRepository;
+    @Autowired
+    CryptWithMD5 cryptWithMD5 ;
 
-    @PostMapping(value = "create")
+    @GetMapping(value = "create")
     public String createPage(Map<String, Object> model) {
         model.put("message",null);
         model.put("success",false);
@@ -25,8 +27,7 @@ public class ClientController {
     }
     
     public String passwordCript(String password) {
-        CryptWithMD5 cryptWithMD5 = null;
-        
+
         String passwordCript;
         passwordCript = cryptWithMD5.cryptWithMD5(password);
         return passwordCript;
@@ -55,7 +56,7 @@ public class ClientController {
     }
 
     @GetMapping
-    public List findAll(){
+    public Iterable<Client> findAll(){
         return clientRepository.findAll();
     }
 
@@ -68,7 +69,7 @@ public class ClientController {
            return ResponseEntity.notFound().build();
     }
 
-    @PutMapping(value="/{id}")
+    @PostMapping(value="/{id}")
     public Client update(@RequestParam("name") String name,
             @RequestParam("surname") String surname,
             @RequestParam("address") String address,
