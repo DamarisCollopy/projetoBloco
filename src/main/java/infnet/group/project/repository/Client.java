@@ -13,14 +13,14 @@ import javax.persistence.*;
 @Table (name = "client")
 public class Client {
 
-    public Client(String name, String surname, String address, String phone, String cpf, String email, String password) {
+    public Client(String name, String surname, Address address, String phone, String cpf, String email, String password) {
         this.name = name;
         this.surname = surname;
-        this.address = address;
         this.phone = phone;
         this.cpf = cpf;
         this.email = email;
         this.password = password;
+        this.address = address;
     }
 
     @Id
@@ -32,8 +32,6 @@ public class Client {
     @Column
     private String surname;
     @Column
-    private String address;
-    @Column
     private String phone;
     @Column
     private String cpf;
@@ -41,5 +39,8 @@ public class Client {
     private String email;
     @Column
     private String password;
+    @OneToOne
+    @JoinColumn
+    private Address address;
 
 }

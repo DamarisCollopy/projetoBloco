@@ -1,5 +1,6 @@
 package infnet.group.project.controller;
 
+import infnet.group.project.repository.Address;
 import infnet.group.project.repository.Client;
 import infnet.group.project.repository.ClientRepository;
 import infnet.group.project.security.CryptWithMD5;
@@ -36,16 +37,25 @@ public class ClientController {
     @PostMapping(value = "create")
     public void save(@RequestParam("name") String name,
                      @RequestParam("surname") String surname,
-                     @RequestParam("address") String address,
                      @RequestParam("phone") String phone,
                      @RequestParam("cpf") String cpf,
                      @RequestParam("email") String email,
                      @RequestParam("password") String password,
+                     @RequestParam("street") String street,
+                     @RequestParam("number") String number,
+                     @RequestParam("complement") String complement,
+                     @RequestParam("zip") String zip,
+                     @RequestParam("neighborhood") String neighborhood,
+                     @RequestParam("city") String city,
+                     @RequestParam("country") String country,
                      Map<String,Object> model) {
         password = passwordCript(password);
-        if(StringUtils.hasText(name) && StringUtils.hasText(surname) && StringUtils.hasText(address)&& StringUtils.hasText(phone)
-                && StringUtils.hasText(cpf)&& StringUtils.hasText(email)&& StringUtils.hasText(password)) {
-            Client client = new Client(name,surname,address,phone,cpf,email,password);
+        if(StringUtils.hasText(name) && StringUtils.hasText(surname) && StringUtils.hasText(phone)
+                && StringUtils.hasText(cpf)&& StringUtils.hasText(email)&& StringUtils.hasText(password)&&
+                StringUtils.hasText(street) &&  StringUtils.hasText(number)  &&  StringUtils.hasText(zip) &&  StringUtils.hasText(neighborhood) &&  StringUtils.hasText(city)
+        &&  StringUtils.hasText(country)) {
+            Address adress = new Address(street,number,complement,zip,neighborhood,city,country);
+            Client client = new Client(name,surname,adress, phone,cpf,email,password);
             clientRepository.save(client);
             model.put("message", "Your account has been created");
             model.put("success", true);
