@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface ClientRepository extends CrudRepository<Client,Long> {
- //   List<Client>findByTitleContainingOrContentContaining(String text, String textAgain);
+    Client findByEmailandAndPassword(String email,String password);
+    Client findByEmail(String email);
 }

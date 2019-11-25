@@ -19,6 +19,8 @@ public class ClientController {
     ClientRepository clientRepository;
     @Autowired
     CryptWithMD5 cryptWithMD5 ;
+    @Autowired
+    Address ad;
 
     @GetMapping(value = "create")
     public String createPage(Map<String, Object> model) {
@@ -26,7 +28,7 @@ public class ClientController {
         model.put("success",false);
         return "/client/create";
     }
-    
+
     public String passwordCript(String password) {
 
         String passwordCript;
@@ -54,8 +56,8 @@ public class ClientController {
                 && StringUtils.hasText(cpf)&& StringUtils.hasText(email)&& StringUtils.hasText(password)&&
                 StringUtils.hasText(street) &&  StringUtils.hasText(number)  &&  StringUtils.hasText(zip) &&  StringUtils.hasText(neighborhood) &&  StringUtils.hasText(city)
         &&  StringUtils.hasText(country)) {
-            Address adress = new Address(street,number,complement,zip,neighborhood,city,country);
-            Client client = new Client(name,surname,adress, phone,cpf,email,password);
+            Address address = new Address(street,number,complement,zip,neighborhood,city,country);
+            Client client = new Client(name,surname,address, phone,cpf,email,password);
             clientRepository.save(client);
             model.put("message", "Your account has been created");
             model.put("success", true);
@@ -81,17 +83,32 @@ public class ClientController {
 
     @PostMapping(value="/{id}")
     public Client update(@RequestParam("name") String name,
-            @RequestParam("surname") String surname,
-            @RequestParam("address") String address,
-            @RequestParam("phone") String phone,
-            @RequestParam("cpf") String cpf,
-            @RequestParam("email") String email,
-            @RequestParam("password") String password,
+                         @RequestParam("surname") String surname,
+                         @RequestParam("address") String address,
+                         @RequestParam("phone") String phone,
+                         @RequestParam("cpf") String cpf,
+                         @RequestParam("email") String email,
+                         @RequestParam("password") String password,
+                         @RequestParam("street") String street,
+                         @RequestParam("number") String number,
+                         @RequestParam("complement") String complement,
+                         @RequestParam("zip") String zip,
+                         @RequestParam("neighborhood") String neighborhood,
+                         @RequestParam("city") String city,
+                         @RequestParam("country") String country,
                          @RequestParam("id") Long id) {
+        password = passwordCript(password);
+        ad.setStreet(street);
+        ad.setNumber(number);
+        ad.setComplement(complement);
+        ad.setZip(zip);
+        ad.setNeighborhood(neighborhood);
+        ad.setCity(city);
+        ad.setCountry(country);
         Client client = clientRepository.findOne(id);
         client.setName(name);
         client.setSurname(surname);
-        client.setAddress(address);
+        client.setAddress(ad);
         client.setCpf(cpf);
         client.setEmail(email);
         client.setPassword(password);

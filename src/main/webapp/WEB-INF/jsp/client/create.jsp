@@ -26,12 +26,14 @@
         <div class="form-group form-group-lg">
             <label for="name" class="col-sm-2 control-label">Name:</label>
             <div class="col-sm-10">
+                class="validation-message"></label>
                 <input type="text" name="name" id="name" class="form-control" >
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="surname" class="col-sm-2 control-label">surname:</label>
             <div class="col-sm-10">
+                class="validation-message"></label>
                 <input type="text" id="surname" class="form-control" name="surname"  >
             </div>
         </div>
@@ -56,6 +58,7 @@
         <div class="form-group form-group-lg">
             <label for="email" class="col-sm-2 control-label">E-mail:</label>
             <div class="col-sm-10">
+                class="validation-message"></label>
                 <input type="text" id="email" class="form-control" name="email"  >
             </div>
         </div>
@@ -63,6 +66,7 @@
             <label for="password" class="col-sm-2 control-label">Password:</label>
             <div class="col-sm-10">
                 <input type="text" id="password" class="form-control" name="password"  >
+                class="validation-message"></label>
             </div>
         </div>
         <div style="float:right">

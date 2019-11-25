@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Entity;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Immutable;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Entity
-@Immutable
+@Component
 @Table(name = "address")
 public class Address {
 
@@ -28,7 +28,7 @@ public class Address {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "cadastro")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
