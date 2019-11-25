@@ -3,8 +3,6 @@ package infnet.group.project.repository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Entity;
-import org.hibernate.annotations.Immutable;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;

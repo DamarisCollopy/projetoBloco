@@ -51,7 +51,7 @@ public class Client {
     @NotEmpty(message = "*Please provide your password")
     private String password;
     @OneToOne
-    @JoinColumn
+    @JoinColumn(name = "id_address")
     private Address address;
 
 }
