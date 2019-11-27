@@ -22,31 +22,19 @@
     <h3>
         ${message}
     </h3>
+    <br>
+    <h2>Personal information:</h2>
     <form method="post" action="<%=request.getContextPath()%>/client/create" class="form-horizontal">
         <div class="form-group form-group-lg">
             <label for="name" class="col-sm-2 control-label">Name:</label>
             <div class="col-sm-10">
-                class="validation-message"></label>
                 <input type="text" name="name" id="name" class="form-control" >
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="surname" class="col-sm-2 control-label">surname:</label>
             <div class="col-sm-10">
-                class="validation-message"></label>
                 <input type="text" id="surname" class="form-control" name="surname"  >
-            </div>
-        </div>
-        <div class="form-group form-group-lg">
-            <label for="address" class="col-sm-2 control-label">adress:</label>
-            <div class="col-sm-10">
-                <input type="text" id="address" class="form-control" name="address"  >
-            </div>
-        </div>
-        <div class="form-group form-group-lg">
-            <label for="phone" class="col-sm-2 control-label">phone:</label>
-            <div class="col-sm-10">
-                <input type="text" id="phone" name="phone" class="form-control" onkeypress="$(this).mask('(00) 0000-00009')" >
             </div>
         </div>
         <div class="form-group form-group-lg">
@@ -56,19 +44,72 @@
             </div>
         </div>
         <div class="form-group form-group-lg">
-            <label for="email" class="col-sm-2 control-label">E-mail:</label>
+            <label for="password" class="col-sm-2 control-label">Password:</label>
             <div class="col-sm-10">
-                class="validation-message"></label>
-                <input type="text" id="email" class="form-control" name="email"  >
+                <input type="password" id="password" class="form-control" name="password"  >
+            </div>
+        </div>
+
+        <h2>Adress:</h2>
+
+        <div class="form-group form-group-lg">
+            <label for="street" class="col-sm-2 control-label">Street:</label>
+            <div class="col-sm-10">
+                <input type="text" id="street" class="form-control" name="street"  >
             </div>
         </div>
         <div class="form-group form-group-lg">
-            <label for="password" class="col-sm-2 control-label">Password:</label>
+            <label for="number" class="col-sm-2 control-label">Number:</label>
             <div class="col-sm-10">
-                <input type="text" id="password" class="form-control" name="password"  >
-                class="validation-message"></label>
+                <input type="number" id="number" class="form-control" name="number"  >
             </div>
         </div>
+        <div class="form-group form-group-lg">
+            <label for="complement" class="col-sm-2 control-label">Complement:</label>
+            <div class="col-sm-10">
+                <input type="text" id="complement" class="form-control" name="complement"  >
+            </div>
+        </div>
+        <div class="form-group form-group-lg">
+            <label for="zip" class="col-sm-2 control-label">Zip code:</label>
+            <div class="col-sm-10">
+                <input type="number" id="zip" class="form-control" name="zip" onkeypress="$(this).mask('00000-000')" >
+            </div>
+        </div>
+        <div class="form-group form-group-lg">
+            <label for="neighborhood" class="col-sm-2 control-label">Neighborhood:</label>
+            <div class="col-sm-10">
+                <input type="text" id="neighborhood" class="form-control" name="complement"  >
+            </div>
+        </div>
+        <div class="form-group form-group-lg">
+            <label for="city" class="col-sm-2 control-label">City:</label>
+            <div class="col-sm-10">
+                <input type="text" id="city" class="form-control" name="city"  >
+            </div>
+        </div>
+        <div class="form-group form-group-lg">
+            <label for="country" class="col-sm-2 control-label">Country:</label>
+            <div class="col-sm-10">
+                <input type="text" id="country" class="form-control" name="country"  >
+            </div>
+        </div>
+
+        <h2>Personal and contact information:</h2>
+
+        <div class="form-group form-group-lg">
+            <label for="phone" class="col-sm-2 control-label">phone:</label>
+            <div class="col-sm-10">
+                <input type="text" id="phone" name="phone" class="form-control" onkeypress="$(this).mask('(00) 0000-00009')" >
+            </div>
+        </div>
+        <div class="form-group form-group-lg">
+            <label for="email" class="col-sm-2 control-label">E-mail:</label>
+            <div class="col-sm-10">
+                <input type="text" id="email" class="form-control" name="email"  >
+            </div>
+        </div>
+
         <div style="float:right">
             <button type="submit" class="btn btn-primary">Save</button>
         </div>

@@ -54,8 +54,8 @@ public class ClientController {
         password = passwordCript(password);
         if(StringUtils.hasText(name) && StringUtils.hasText(surname) && StringUtils.hasText(phone)
                 && StringUtils.hasText(cpf)&& StringUtils.hasText(email)&& StringUtils.hasText(password)&&
-                StringUtils.hasText(street) &&  StringUtils.hasText(number)  &&  StringUtils.hasText(zip) &&  StringUtils.hasText(neighborhood) &&  StringUtils.hasText(city)
-        &&  StringUtils.hasText(country)) {
+                StringUtils.hasText(street) &&  StringUtils.hasText(number)  &&  StringUtils.hasText(zip) &&  StringUtils.hasText(neighborhood) &&  StringUtils.hasText(city) &&
+         StringUtils.hasText(country)) {
             Address address = new Address(street,number,complement,zip,neighborhood,city,country);
             Client client = new Client(name,surname,address, phone,cpf,email,password);
             clientRepository.save(client);
