@@ -52,6 +52,10 @@ public class ClientController {
                      @RequestParam("country") String country,
                      Map<String,Object> model) {
         password = passwordCript(password);
+        if(clientRepository.findByEmail(email)!= null) {
+            model.put(" message", " Email already exists ");
+            return;
+        }
         if(StringUtils.hasText(name) && StringUtils.hasText(surname) && StringUtils.hasText(phone)
                 && StringUtils.hasText(cpf)&& StringUtils.hasText(email)&& StringUtils.hasText(password)&&
                 StringUtils.hasText(street) &&  StringUtils.hasText(number)  &&  StringUtils.hasText(zip) &&  StringUtils.hasText(neighborhood) &&  StringUtils.hasText(city) &&
@@ -80,6 +84,7 @@ public class ClientController {
        else
            return ResponseEntity.notFound().build();
     }
++
 
     @PostMapping(value="/{id}")
     public Client update(@RequestParam("name") String name,

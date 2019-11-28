@@ -33,24 +33,18 @@ public class Client {
     private Long id;
 
     @Column
-    @NotEmpty(message = "*Please provide your name")
     private String name;
     @Column
-    @NotEmpty(message = "*Please provide your last name")
     private String surname;
     @Column
     private String phone;
     @Column
     private String cpf;
-    @Column
-    @Email(message = "*Please provide a valid Email")
-    @NotEmpty(message = "*Please provide an email")
+    @Column(nullable = false, unique = true)
     private String email;
     @Column
-    @Length(min = 5, message = "*Your password must have at least 5 characters")
-    @NotEmpty(message = "*Please provide your password")
     private String password;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_address")
     private Address address;
 
