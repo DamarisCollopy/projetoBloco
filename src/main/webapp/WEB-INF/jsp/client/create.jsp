@@ -28,25 +28,25 @@
         <div class="form-group form-group-lg">
             <label for="name" class="col-sm-2 control-label">Name:</label>
             <div class="col-sm-10">
-                <input type="text" name="name" id="name" class="form-control" >
+                <input type="text" name="name" id="name" class="form-control" value="${client.name}">
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="surname" class="col-sm-2 control-label">surname:</label>
             <div class="col-sm-10">
-                <input type="text" id="surname" class="form-control" name="surname"  >
+                <input type="text" id="surname" class="form-control" name="surname" value="${client.surname" >
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="cpf" class="col-sm-2 control-label">CPF:</label>
             <div class="col-sm-10">
-                <input type="text" id="cpf" class="form-control" name="cpf" onkeypress="$(this).mask('000.000.000-00');">
+                <input type="text" id="cpf" class="form-control" name="cpf" onkeypress="$(this).mask('000.000.000-00');" value="${client.cpf}">
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="password" class="col-sm-2 control-label">Password:</label>
             <div class="col-sm-10">
-                <input type="password" id="password" class="form-control" name="password"  >
+                <input type="password" id="password" class="form-control" name="password" >
             </div>
         </div>
 
@@ -55,31 +55,31 @@
         <div class="form-group form-group-lg">
             <label for="street" class="col-sm-2 control-label">Street:</label>
             <div class="col-sm-10">
-                <input type="text" id="street" class="form-control" name="street"  >
+                <input type="text" id="street" class="form-control" name="street"value="${client.street}"  >
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="number" class="col-sm-2 control-label">Number:</label>
             <div class="col-sm-10">
-                <input type="number" id="number" class="form-control" name="number"  >
+                <input type="number" id="number" class="form-control" name="number"value="${client.number}"  >
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="complement" class="col-sm-2 control-label">Complement:</label>
             <div class="col-sm-10">
-                <input type="text" id="complement" class="form-control" name="complement"  >
+                <input type="text" id="complement" class="form-control" name="complement"value="${client.complement}"  >
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="zip" class="col-sm-2 control-label">Zip code:</label>
             <div class="col-sm-10">
-                <input type="number" id="zip" class="form-control" name="zip" onkeypress="$(this).mask('00000-000')" >
+                <input type="number" id="zip" class="form-control" name="zip" onkeypress="$(this).mask('00000-000')"value="${client.zip}" >
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="neighborhood" class="col-sm-2 control-label">Neighborhood:</label>
             <div class="col-sm-10">
-                <input type="text" id="neighborhood" class="form-control" name="neighborhood"  >
+                <input type="text" id="neighborhood" class="form-control" name="neighborhood" value="${client.neighborhood}" >
             </div>
         </div>
         <div class="form-group form-group-lg">
@@ -91,7 +91,7 @@
         <div class="form-group form-group-lg">
             <label for="country" class="col-sm-2 control-label">Country:</label>
             <div class="col-sm-10">
-                <input type="text" id="country" class="form-control" name="country"  >
+                <input type="text" id="country" class="form-control" name="country" value="${client.country}" >
             </div>
         </div>
 
@@ -100,7 +100,7 @@
         <div class="form-group form-group-lg">
             <label for="phone" class="col-sm-2 control-label">phone:</label>
             <div class="col-sm-10">
-                <input type="text" id="phone" name="phone" class="form-control" onkeypress="$(this).mask('(00) 0000-00009')" >
+                <input type="text" id="phone" name="phone" class="form-control" onkeypress="$(this).mask('(00) 0000-00009')"value="${client.phone}" >
             </div>
         </div>
         <div class="form-group form-group-lg">

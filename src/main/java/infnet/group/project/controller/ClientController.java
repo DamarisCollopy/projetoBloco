@@ -53,6 +53,9 @@ public class ClientController {
                      Map<String,Object> model) {
         password = passwordCript(password);
         if(clientRepository.findByEmail(email)!= null) {
+            Address address = new Address(street,number,complement,zip,neighborhood,city,country);
+            Client client = new Client(name,surname,address, phone,cpf,email,password);
+            model.put("client",client);
             model.put(" message", " Email already exists ");
             return;
         }
@@ -84,7 +87,6 @@ public class ClientController {
        else
            return ResponseEntity.notFound().build();
     }
-+
 
     @PostMapping(value="/{id}")
     public Client update(@RequestParam("name") String name,
