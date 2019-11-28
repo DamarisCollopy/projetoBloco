@@ -16,34 +16,37 @@
 </head>
 <body>
 <div class="container">
-    <center>
+
     <h2>
         Welcome to SmartFood !!!
+        <br>
         Please, log in:
     </h2>
-    <div class="form-group form-group-lg">
-        <label for="email" class="col-sm-2 control-label">E-mail:</label>
-        <div class="col-sm-10">
-            <input type="text" id="email" class="form-control" name="email"  >
+    <form method="post" action="<%=request.getContextPath()%>/login/doLogin" class="form-horizontal">
+        <div class="form-group form-group-lg">
+            <label for="email" class="col-sm-2 control-label">E-mail:</label>
+            <div class="col-sm-10">
+                <input type="text" id="email" class="form-control" name="email"  >
+            </div>
         </div>
-    </div>
-    <div class="form-group form-group-lg">
-        <label for="password" class="col-sm-2 control-label">Password:</label>
-        <div class="col-sm-10">
-            <input type="password" id="password" class="form-control" name="password"  >
+        <div class="form-group form-group-lg">
+            <label for="password" class="col-sm-2 control-label">Password:</label>
+            <div class="col-sm-10">
+                <input type="password" id="password" class="form-control" name="password"  >
+            </div>
         </div>
-    </div>
     <br>
     <div style="float:right">
-        <button href="<%=request.getContextPath()%>/main" type="submit" class="btn btn-primary">Login</button>
+        <button  type="submit" class="btn btn-primary">Login</button>
     </div>
-
+    <form/>
     <h2>
         Or, order your food :
     </h2>
     <div style="float:right">
         <button type="submit" class="btn btn-primary">Express Order</button>
     </div>
-    </center>
 
-    <div style="background-image: url('background.jpg');>
+</div>
+</body>
+</html>

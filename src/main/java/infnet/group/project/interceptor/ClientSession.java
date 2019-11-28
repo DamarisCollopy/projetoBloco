@@ -28,8 +28,8 @@ public class ClientSession {
         this.client = null;
     }
 
-    public Client findUserByEmail(String email) {
-        return clientRepository.findByEmail(email);
-    }
+    //public Client findUserByEmail(String email) {
+        //return clientRepository.findByEmail(email);
+    //}
 
 }

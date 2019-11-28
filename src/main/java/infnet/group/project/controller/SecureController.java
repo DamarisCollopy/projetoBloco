@@ -17,6 +17,6 @@ public class SecureController {
 
     @GetMapping String main(Map<String,Object> model) {
         model.put("client", clientSession.getLoggedUser());
-        return "secure/mainPage";
+        return "secure/main";
     }
 }

@@ -41,7 +41,7 @@ public class LoginController {
                         Map<String, Object> model) {
         password = passwordCript(password);
         Client client = clientRepository.findByEmailAndPassword(email,password);
-        if (client != null ) {
+        if (client != null) {
             clientSession.addLoggedUser(client);
             return "redirect:/secure";
         } else {
