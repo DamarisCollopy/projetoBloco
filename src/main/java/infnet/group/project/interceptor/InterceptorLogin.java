@@ -1,5 +1,6 @@
 package infnet.group.project.interceptor;
 
+import infnet.group.project.repository.Client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,23 +14,23 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class InterceptorLogin implements HandlerInterceptor {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(InterceptorLogin.class);
-
     @Autowired
     ClientSession clientSession;
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         String url = httpServletRequest.getRequestURI();
-        LOGGER.info("Interceptando a requisicao{}",url);
-        if(url.contains("/secure") && clientSession.getLoggedUser()== null) {
-            LOGGER.info("Redirecting to {}", url);
-            String loginPage = httpServletRequest.getContextPath() + "/login/doLogin";
-            httpServletResponse.sendRedirect(loginPage);
-            return false;
+        Client client = clientSession.getLoggedUser();
+        if(client != null) {
+            return true;
+        } else if(url.contains("/client/create") || url.contains("login")) {
+            return true;
         }
-        return true;
+        String loginPage = httpServletRequest.getContextPath() + "/login/doLogin";
+        httpServletResponse.sendRedirect(loginPage);
+        return false;
     }
+
 
     @Override
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {

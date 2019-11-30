@@ -6,10 +6,7 @@ import infnet.group.project.repository.ClientRepository;
 import infnet.group.project.security.CryptWithMD5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -48,6 +45,12 @@ public class LoginController {
             model.put("message", "Login not valid");
             return null;
         }
+    }
+
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
+    public String logout() {
+        clientSession.removeLoggedUser();
+        return "login/doLogin";
     }
 }
 

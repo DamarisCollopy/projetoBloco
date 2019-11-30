@@ -21,6 +21,8 @@ public class ClientController {
     CryptWithMD5 cryptWithMD5 ;
     @Autowired
     Address ad;
+    @Autowired
+    Client client;
 
     @GetMapping(value = "create")
     public String createPage(Map<String, Object> model) {
@@ -53,10 +55,9 @@ public class ClientController {
                      Map<String,Object> model) {
         password = passwordCript(password);
         if(clientRepository.findByEmail(email)!= null) {
-            Address address = new Address(street,number,complement,zip,neighborhood,city,country);
-            Client client = new Client(name,surname,address, phone,cpf,email,password);
             model.put("client",client);
-            model.put(" message", " Email already exists ");
+            model.put(" message", "Email already exists");
+            model.put("success",false);
             return;
         }
         if(StringUtils.hasText(name) && StringUtils.hasText(surname) && StringUtils.hasText(phone)
@@ -70,7 +71,7 @@ public class ClientController {
             model.put("success", true);
         } else {
             model.put("message", "Ops! Please, fill all inputs");
-            model.put("success", false);
+            //model.put("success", false);
         }
     }
 

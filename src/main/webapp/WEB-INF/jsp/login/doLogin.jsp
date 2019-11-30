@@ -16,17 +16,23 @@
 </head>
 <body>
 <div class="container">
-
     <h2>
-        Welcome to SmartFood !!!
-        <br>
-        Please, log in:
+        Login
     </h2>
+
+    <c:if test="${message != null}">
+        <h3>
+            <c:out value="${message}" />
+        </h3>
+
+    </c:if>
+
+
     <form method="post" action="<%=request.getContextPath()%>/login/doLogin" class="form-horizontal">
         <div class="form-group form-group-lg">
-            <label for="email" class="col-sm-2 control-label">E-mail:</label>
+            <label for="email" class="col-sm-2 control-label">Name:</label>
             <div class="col-sm-10">
-                <input type="text" id="email" class="form-control" name="email"  >
+                <input type="email" name="email" id="email" class="form-control" >
             </div>
         </div>
         <div class="form-group form-group-lg">
@@ -35,18 +41,16 @@
                 <input type="password" id="password" class="form-control" name="password"  >
             </div>
         </div>
-    <br>
-    <div style="float:right">
-        <button  type="submit" class="btn btn-primary">Login</button>
-    </div>
-    <form/>
-    <h2>
-        Or, order your food :
-    </h2>
-    <div style="float:right">
-        <button type="submit" class="btn btn-primary">Express Order</button>
-    </div>
+
+        <div style="float:right">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
+
+    <br ><br >
+    <a href="<%=request.getContextPath()%>/client/create">Create your account</a>
 
 </div>
+
 </body>
 </html>

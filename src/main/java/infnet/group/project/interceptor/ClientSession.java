@@ -1,22 +1,16 @@
 package infnet.group.project.interceptor;
 
+
 import infnet.group.project.repository.Client;
-import infnet.group.project.repository.ClientRepository;
-import infnet.group.project.security.CryptWithMD5;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
-@Scope(value = " session", proxyMode = ScopedProxyMode.TARGET_CLASS)
+
+@Scope(value = "session", proxyMode= ScopedProxyMode.TARGET_CLASS)
 @Component
 public class ClientSession {
 
     Client client;
-
-    @Autowired
-    ClientRepository clientRepository;
-    @Autowired
-    CryptWithMD5 cryptWithMD5;
 
     public void addLoggedUser(Client c) {
         this.client = c;
@@ -29,9 +23,4 @@ public class ClientSession {
     public void removeLoggedUser() {
         this.client = null;
     }
-
-    //public Client findUserByEmail(String email) {
-        //return clientRepository.findByEmail(email);
-    //}
-
 }

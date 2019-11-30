@@ -44,7 +44,7 @@ public class Client {
     private String email;
     @Column
     private String password;
-    @OneToOne(cascade = CascadeType.MERGE)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_address")
     private Address address;
 

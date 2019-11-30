@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Map;
 
@@ -15,7 +16,8 @@ public class SecureController {
     @Autowired
     ClientSession clientSession;
 
-    @GetMapping String main(Map<String,Object> model) {
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public String main(Map<String,Object> model) {
         model.put("client", clientSession.getLoggedUser());
         return "secure/main";
     }
