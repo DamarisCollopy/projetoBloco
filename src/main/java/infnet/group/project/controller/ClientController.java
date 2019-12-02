@@ -28,7 +28,7 @@ public class ClientController {
     public String createPage(Map<String, Object> model) {
         model.put("message",null);
         model.put("success",false);
-        return "/client/create";
+        return "secure/client/create";
     }
 
     public String passwordCript(String password) {
@@ -56,7 +56,7 @@ public class ClientController {
         password = passwordCript(password);
         if(clientRepository.findByEmail(email)!= null) {
             model.put("client",client);
-            model.put(" message", "Email already exists");
+            model.put("message", "Email already exists");
             model.put("success",false);
             return;
         }
@@ -71,7 +71,7 @@ public class ClientController {
             model.put("success", true);
         } else {
             model.put("message", "Ops! Please, fill all inputs");
-            //model.put("success", false);
+            model.put("success", false);
         }
     }
 
