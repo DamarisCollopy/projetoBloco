@@ -38,7 +38,7 @@
         <div class="form-group form-group-lg">
             <label for="password" class="col-sm-2 control-label">Password:</label>
             <div class="col-sm-10">
-                <input type="password" id="password" class="form-control" name="password"  >
+                <input type="password" id="password" class="form-control" name="password" inputmode="numeric" >
             </div>
         </div>
 
@@ -48,7 +48,7 @@
     </form>
 
     <br ><br >
-    <a href="<%=request.getContextPath()%>/client/create">Create your account</a>
+    <a href="<%=request.getContextPath()%>secure/client/create">Create your account</a>
 
 </div>
 

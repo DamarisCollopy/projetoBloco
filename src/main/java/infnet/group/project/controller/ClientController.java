@@ -18,11 +18,11 @@ public class ClientController {
     @Autowired
     ClientRepository clientRepository;
     @Autowired
-    CryptWithMD5 cryptWithMD5 ;
-    @Autowired
     Address ad;
     @Autowired
     Client client;
+    @Autowired
+    CryptWithMD5 cryptWithMD5;
 
     @GetMapping(value = "create")
     public String createPage(Map<String, Object> model) {
@@ -37,7 +37,7 @@ public class ClientController {
         passwordCript = cryptWithMD5.cryptWithMD5(password);
         return passwordCript;
     }
-    
+
     @PostMapping(value = "create")
     public void save(@RequestParam("name") String name,
                      @RequestParam("surname") String surname,
@@ -89,7 +89,7 @@ public class ClientController {
            return ResponseEntity.notFound().build();
     }
 
-    @PostMapping(value="/{id}")
+    @PostMapping(value="update")
     public Client update(@RequestParam("name") String name,
                          @RequestParam("surname") String surname,
                          @RequestParam("address") String address,

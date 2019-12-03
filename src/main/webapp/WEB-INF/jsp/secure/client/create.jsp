@@ -40,13 +40,15 @@
         <div class="form-group form-group-lg">
             <label for="name" class="col-sm-2 control-label">Name:</label>
             <div class="col-sm-10">
-                <input type="text" name="name" id="name" class="form-control" >
+                <input type="text" name="name" id="name" class="form-control" pattern="[a-z\s]+$"
+                       title="Enter letters only" >
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="surname" class="col-sm-2 control-label">surname:</label>
             <div class="col-sm-10">
-                <input type="text" id="surname" class="form-control" name="surname"  >
+                <input type="text" id="surname" class="form-control" name="surname" pattern="[a-z\s]+$"
+                       title="Enter letters only" >
             </div>
         </div>
         <div class="form-group form-group-lg">
@@ -58,7 +60,8 @@
         <div class="form-group form-group-lg">
             <label for="password" class="col-sm-2 control-label">Password:</label>
             <div class="col-sm-10">
-                <input type="password" id="password" class="form-control" name="password" >
+                <input type="password" id="password" class="form-control" name="password" pattern="[0-9a-fA-F]{4,8}" inputmode="numeric" required
+                       title="Digite um password consistindo de 4-8 dígitos hexadecimais">
             </div>
         </div>
 
@@ -67,7 +70,8 @@
         <div class="form-group form-group-lg">
             <label for="street" class="col-sm-2 control-label">Street:</label>
             <div class="col-sm-10">
-                <input type="text" id="street" class="form-control" name="street" >
+                <input type="text" id="street" class="form-control" name="street" pattern="[a-z\s]+$"
+                       title="Enter letters only">
             </div>
         </div>
         <div class="form-group form-group-lg">
@@ -91,19 +95,22 @@
         <div class="form-group form-group-lg">
             <label for="neighborhood" class="col-sm-2 control-label">Neighborhood:</label>
             <div class="col-sm-10">
-                <input type="text" id="neighborhood" class="form-control" name="neighborhood" >
+                <input type="text" id="neighborhood" class="form-control" name="neighborhood" pattern="[a-z\s]+$"
+                       title="Enter letters only" >
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="city" class="col-sm-2 control-label">City:</label>
             <div class="col-sm-10">
-                <input type="text" id="city" class="form-control" name="city"  >
+                <input type="text" id="city" class="form-control" name="city" pattern="[a-z\s]+$"
+                       title="Enter letters only"  >
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="country" class="col-sm-2 control-label">Country:</label>
             <div class="col-sm-10">
-                <input type="text" id="country" class="form-control" name="country" >
+                <input type="text" id="country" class="form-control" name="country" pattern="[a-z\s]+$"
+                       title="Enter letters only" >
             </div>
         </div>
 
