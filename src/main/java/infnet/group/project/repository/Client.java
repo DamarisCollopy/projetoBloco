@@ -3,6 +3,10 @@ package infnet.group.project.repository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
@@ -10,17 +14,18 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Entity
+@Component
 @Table (name = "client")
 public class Client {
 
-    public Client(String name, String surname, String address, String phone, String cpf, String email, String password) {
+    public Client(String name, String surname, Address address, String phone, String cpf, String email, String password) {
         this.name = name;
         this.surname = surname;
-        this.address = address;
         this.phone = phone;
         this.cpf = cpf;
         this.email = email;
         this.password = password;
+        this.address = address;
     }
 
     @Id
@@ -32,14 +37,15 @@ public class Client {
     @Column
     private String surname;
     @Column
-    private String address;
-    @Column
     private String phone;
     @Column
     private String cpf;
-    @Column
+    @Column(nullable = false, unique = true)
     private String email;
     @Column
     private String password;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_address")
+    private Address address;
 
 }
